@@ -42,6 +42,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "implementationofbt": "cpp"
+        "implementationofbt": "cpp",
+        "queue": "cpp"
     }
 }
