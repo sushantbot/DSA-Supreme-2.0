@@ -65,19 +65,6 @@ void levelOrderTraversal(Node*&root){
     }
 }
 
-void left_view(Node*root,vector<int>&vect,int level){
-    if(root==NULL){
-        return;
-    }
-    if(level==vect.size()){
-        //in this case we will push the elemnt into array
-        vect.push_back(root->data);
-    }
-
-    //now recursive calls
-    left_view(root->left,vect,level+1);
-    left_view(root->right,vect,level+1);
-}
 
 void right_view(Node*root,vector<int>&vect,int level){
     if(root==NULL){
@@ -100,20 +87,6 @@ int main(){
 
     //Now passing this node in level order traversal
     levelOrderTraversal(rootNode);
-
-    //calling function to print the leftView
-    vector<int>arr;
-    int left_level=0;
-    left_view(rootNode,arr,left_level);
-
-    //Now our arr array is created
-    cout << "Left View array is : ";
-    for(int i:arr){
-        cout << i << ",";
-    }
-    cout << endl;
-
-
 
     //calling function to print the rightView
     vector<int>brr;

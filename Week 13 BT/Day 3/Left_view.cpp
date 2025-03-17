@@ -100,8 +100,8 @@ int main()
     //Creating array for storing the node data of left
     vector<int>arr;
     //Now our objective is to print an array of elements consisting 10,20,30
-    left_view(rootNode,0,arr);
-
+    int level=0;
+    left_view(rootNode,level,arr);
     //Now we will be printing the arr to check what is stored and cross verify
     cout << "The Left View Elements are:";
     for(int i:arr){
