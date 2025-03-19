@@ -85,7 +85,13 @@ void left_view(Node*root,int level,vector<int>&arr){
 
     //baaki recursive call sambhal lega
     left_view(root->left,level+1,arr);
-    left_view(root->right,level+1,arr);
+    //we will call right on;y when we know for sure that the flow is correct
+    //so that the right element of a tree which is of another level which has not been 
+    //filled doesnot get added
+    if(level==arr.size()){
+        left_view(root->right,level+1,arr);
+
+    }
 
 }
 

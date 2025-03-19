@@ -77,7 +77,10 @@ void right_view(Node*root,vector<int>&vect,int level){
 
     //now recursive calls
     right_view(root->right,vect,level+1);
+    // The left subtree is traversed only if the right subtree did not already add an element at that level.
+    if(level==vect.size()){
     right_view(root->left,vect,level+1);
+    }
 }
 
 
