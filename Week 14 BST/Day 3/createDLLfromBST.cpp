@@ -1,55 +1,60 @@
-#include<iostream>
-#include<queue>
+#include <iostream>
+#include <queue>
 using namespace std;
 
-class Node{
+class Node
+{
 public:
     int data;
-    Node*left;
-    Node*right;
+    Node *left;
+    Node *right;
 
-    //Constructor
-    Node(int data ){
-        this->data = data;
-        this->left=NULL;
+    Node(int value)
+    {
+        this->data = value;
+        this->left = NULL;
         this->right = NULL;
     }
 };
 
-Node*insertIntoBST(Node*&root,int data ){
+Node*insertIntoBST(Node*&root,int data){
     if(root==NULL){
-        //this case is for the first Node
+        //this is the first node of the BST
         root=new Node(data);
-        return;
+        return root;
     }
 
-    //lekin agar pehle se Nodes available hain to fir recursion ke thru attach/insert krenge
-    if(data > root->data){
-        //then it will go to right
-        root->right=insertIntoBST(root->right,data);
+    //if this is not the first node of the BST, then we will be connecting the nodes at appropriate places
+    if(root->data > data){
+        root->left =  insertIntoBST(root->left,data);
     }
     else{
-        root->left =insertIntoBST(root->left,data);
+        // (root->data < data)
+        root->right =  insertIntoBST(root->right,data);
     }
 
     return root;
 }
 
-void createBST(Node*&root){
+void createBst(Node*&root){
     int data;
-    cout << "enter data:";
+    cout << "Enter Data: ";
     cin >> data;
 
     while(data!=-1){
-        //we will pass this data to the function which is inserting in the BStree
         insertIntoBST(root,data);
-        //again we will take input for data
-        cout << "Enter Data:";
+        //again taking input 
+        cout << "Enter Data: ";
         cin >> data;
     }
 }
 
+
 void levelOrderTraversal(Node*&root){
+    if(root==NULL){
+        return;
+    }
+
     queue<Node*>q;
     q.push(root);
     q.push(nullptr);
@@ -74,14 +79,16 @@ void levelOrderTraversal(Node*&root){
             }
         }
     }
-
 }
 
-int main(){
-    Node*root=NULL;
-    createBST(root);
 
-    cout << "Level Order Traversal\n"; 
+
+
+
+int main()
+{
+    Node*root=NULL;
+    createBst(root);
+    //levelordertraversal
     levelOrderTraversal(root);
-    return 0;
 }
