@@ -43,6 +43,9 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "implementationofbt": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "bitset": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     }
 }
